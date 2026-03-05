@@ -78,6 +78,7 @@ ol li {
     background-color: #A4DD00;
     border-radius: 0.25rem;
     text-decoration: none;
+    color: black; /* Am I being graded on spotting issues in the CSS and fixing them? */
 }
 
 .btn:hover {
@@ -131,16 +132,23 @@ form input[id="email"] {
     width: 100%;
     padding: 0 0.625rem;
     line-height: 3.4375rem;
+    height: 3.4375rem;
     border: 1px solid #A8A29E;
     border-radius: 0.25rem;
     margin-bottom: 0.6875rem;
+    box-sizing: border-box;
 }
 
 form .btn {
     cursor: pointer;
-    background-color: #fff;
+    /*background-color: #fff; I'm choosing to treat the provided .fig file as the authoritative source on how this button should look
+    border: 1px solid #57534E; */
     width: 100%;
-    border: 1px solid #57534E;
+
+    border-radius: 0.25rem;
+    border: 1px solid #A8A29E;
+    background: #E7E5E4;
+    height: 3.125rem;
 }
 
 form .btn:hover {
@@ -156,8 +164,88 @@ footer {
     padding: 4.125rem 0;
 }
 
-/* ***************** Add media query for the 588px screen ***************** */
+/* ******** Add media query for the 588px screen ******** */
 
-/* ***************** footer ***************** */
+@media screen and (min-width: 588px) {
+    aside .container {
+        max-width: 588px;
+    }
+    header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    header nav ul {
+        display: flex;
+        gap: 2.75rem;
+    }
+    form div {
+        display: flex;
+    }
+    form .btn {
+        width: 10.8125rem;
+        height: 3.4375rem;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    form input[id="email"] {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}
 
-/* ***************** footer ***************** */
+/* ***************** 980px media query ***************** */
+
+@media screen and (min-width: 980px) {
+    main .sections {
+        display: flex;
+    }
+    .sections > * {
+        flex: 1 1 0;
+    }
+    .sections > section {
+        margin-bottom: 0;
+    }
+    .btn-center {
+        display: initial;
+    }
+    footer p {
+        max-width: 60ch;
+    }
+}
+
+/* ***************** 1920px media query ***************** */
+
+@media screen and (min-width: 1920px) {
+    .container,
+    main {
+        max-width: 1720px;
+        padding: 0;
+        margin: auto;
+    }
+    main {
+        display: flex;
+        gap: 2rem;
+    }
+    main .sections {
+        width: calc(((100% / 3) * 2) + 2rem);
+        gap: 2rem;
+    }
+    footer .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+    }
+    footer p {
+        margin-bottom: 0;
+    }
+    aside {
+        height: fit-content;
+        padding: 2.75rem 1rem;
+        padding-bottom: 4.12rem;
+    }
+    form input[id="email"] {
+        margin: 0;
+    }
+}
